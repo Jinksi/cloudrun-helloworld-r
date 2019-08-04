@@ -1,0 +1,13 @@
+# This file is used to deploy to Google Cloud Run
+steps:
+  # build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/awesome-162303/helloworld-r', '.']
+  # push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/awesome-162303/helloworld-r']
+  # Deploy container image to Cloud Run
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['beta', 'run', 'deploy', 'helloworld-r', '--image', 'gcr.io/awesome-162303/helloworld-r', '--region', 'us-central1','--platform', 'managed', '--quiet']
+images:
+- gcr.io/awesome-162303/helloworld-r
