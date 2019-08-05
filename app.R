@@ -1,4 +1,6 @@
 # app.R
+library(geojsonio)
+library(jsonlite)
 
 #' @get /healthCheck
 function(){
@@ -26,6 +28,17 @@ function(){
 #' @post /sum
 function(a, b){
   as.numeric(a) + as.numeric(b)
+}
+
+#' Serve GEOJSON
+#' @json
+#' @get /geojson
+function(){
+  points <- c(32.45, -99.74)
+  # cbind(rnorm(40) * 2 + 13, rnorm(40) + 48)
+  data <- geojson_json(points)
+  print(fromJSON(data))
+  fromJSON(data)
 }
 
 print('app.R running')
