@@ -2,6 +2,12 @@
 library(geojsonio)
 library(jsonlite)
 
+#' @filter cors
+cors <- function(res) {
+  res$setHeader("Access-Control-Allow-Origin", "*")
+  plumber::forward()
+}
+
 #' @get /healthCheck
 function(){
   list(200, "Health Check passed", Sys.getenv("hostname"))
