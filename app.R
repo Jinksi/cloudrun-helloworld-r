@@ -43,9 +43,9 @@ function(){
   # Create data
   df <- data.frame(
     id = c('cam1', 'cam2', 'cam3'),
-    lon = c(-28.1708, -28.1704, -28.17),
-    lat = c(153.5473, 153.5478, 153.5482)
-  )
+    lat = c(-28.1708, -28.1704, -28.17),
+    lon = c(153.5473, 153.5478, 153.5482)
+  ) 
   # create geojson string from dataframe
   dataString <- geojson_json(df)
   # create R dataframe from JSON string
