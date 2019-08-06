@@ -3,7 +3,7 @@
 An example of creating serverless functions using `R`, `plumber` and `Docker`. This project exposes a `/geojson` endpoint which generates random points in `geojson` format.
 
 Take a look at the frontend at https://hello-r-app.jinks.dev  
-Take a look at the Swagger API UI at https://hello-r.jinks.dev/\_\_swagger__/
+Take a look at the Swagger API UI at https://hello-r.jinks.dev/__swagger__/
 
 ## Important files:
 
