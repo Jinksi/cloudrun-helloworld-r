@@ -8,7 +8,9 @@ cors <- function(res) {
   plumber::forward()
 }
 
-#' Serve GEOJSON containing 3 points surrounding central coordinate
+#' Generates geojson containing
+#' 70 points surrounding central coordinate
+#' each with a randomised magnitude property
 #' @param lat latitude of central coordinate
 #' @param lon longitude of central coordinate
 #' @post /geojson
@@ -16,9 +18,9 @@ function(lat, lon){
   lat <- as.numeric(lat)
   lon <- as.numeric(lon)
   maxRange <- 0.1
-
-  # Create data
   n <- 70
+
+  # Generate data
   df <- data.frame(
     lat = runif(n, min = lat - maxRange, max = lat + maxRange),
     lon = runif(n, min = lon - maxRange, max = lon + maxRange),
