@@ -1,8 +1,10 @@
 # Cloudrun R Hello World
 
-An example of creating serverless functions using `R`, `plumber` and `Docker`. This project exposes a `/geojson` endpoint which generates random points in `geojson` format.
+An example of creating serverless functions using `R`, `plumber` and `Docker`.
 
-Take a look at the frontend at https://hello-r-app.jinks.dev  
+Take a look at the frontend at https://hello-r-app.jinks.dev.  
+When the map is clicked, a POST request is made to the `geojson` endpoint with `lat` and `lon` values. The `R` function will generate a random 70 points near the requested coordinates in `geojson` format. This is displayed on the frontend as a heatmap layer and can be filtered using the magnitude input.
+
 Take a look at the Swagger API UI at https://hello-r.jinks.dev/__swagger__/
 
 ## Important files:
