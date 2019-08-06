@@ -10,7 +10,7 @@ cors <- function(res) {
 
 #' Serve GEOJSON containing 3 points surrounding central coordinate
 #' @param lat latitude of central coordinate
-#' @param lon lon of central coordinate
+#' @param lon longitude of central coordinate
 #' @post /geojson
 function(lat, lon){
   lat <- as.numeric(lat)
