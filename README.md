@@ -4,7 +4,7 @@
 
 An example of creating serverless functions using `R`, `plumber`, `Docker` and [Cloud Run](https://cloud.google.com/run/).
 
-Take a look at the Swagger API UI at https://hello-r.jinks.dev/__swagger__/
+Take a look at the Swagger API UI at https://cloudrun-hello-r.jinks.dev/__swagger__/
 
 ## File descriptions:
 
