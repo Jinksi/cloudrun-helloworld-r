@@ -1,6 +1,6 @@
-# Use the plumber Dockerfile as reference
-# https://github.com/trestletech/plumber/blob/master/Dockerfile
-FROM rocker/geospatial
+# Use the official R image
+# https://hub.docker.com/_/r-base
+FROM r-base
 
 # Create and change to the app directory.
 WORKDIR /usr/src/app
@@ -9,9 +9,7 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Install any R packages
-RUN install2.r \
-  plumber \
-  geojsonio
+RUN Rscript -e "install.packages('plumber')"
 
 EXPOSE 8080
 

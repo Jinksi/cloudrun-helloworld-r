@@ -1,13 +1,26 @@
 # This file is used to deploy to Google Cloud Run
 steps:
   # build the container image
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/awesome-162303/helloworld-r', '.']
-  # push the container image to Container Registry
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/awesome-162303/helloworld-r']
-  # Deploy container image to Cloud Run
-- name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'run', 'deploy', 'helloworld-r', '--image', 'gcr.io/awesome-162303/helloworld-r', '--region', 'asia-northeast1','--platform', 'managed', '--quiet']
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/awesome-162303/cloudrun-hello-r", "."]
+    # push the container image to Container Registry
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/awesome-162303/cloudrun-hello-r"]
+    # Deploy container image to Cloud Run
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "beta",
+        "run",
+        "deploy",
+        "cloudrun-hello-r",
+        "--image",
+        "gcr.io/awesome-162303/cloudrun-hello-r",
+        "--region",
+        "asia-northeast1",
+        "--platform",
+        "managed",
+        "--quiet",
+      ]
 images:
-- gcr.io/awesome-162303/helloworld-r
+  - gcr.io/awesome-162303/cloudrun-hello-r

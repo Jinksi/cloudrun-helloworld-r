@@ -1,5 +1,4 @@
 # app.R
-library(geojsonio)
 
 #' CORS allows requests made from external urls to be accepted
 #' @filter cors
@@ -8,30 +7,27 @@ cors <- function(res) {
   plumber::forward()
 }
 
-#' Generates geojson containing
-#' 70 points surrounding central coordinate
-#' each with a randomised magnitude property
-#' @param lat latitude of central coordinate
-#' @param lon longitude of central coordinate
-#' @post /geojson
-function(lat, lon){
-  lat <- as.numeric(lat)
-  lon <- as.numeric(lon)
-  maxRange <- 0.1
-  n <- 70
+#* Echo back the input
+#* @param msg The message to echo
+#* @get /echo
+function(msg=""){
+  list(msg = paste0("The message is: '", msg, "'"))
+}
 
-  # Generate data
-  df <- data.frame(
-    lat = runif(n, min = lat - maxRange, max = lat + maxRange),
-    lon = runif(n, min = lon - maxRange, max = lon + maxRange),
-    magnitude = runif(n, min = 0, max = 1)
-  ) 
+#* Plot a histogram
+#* @png
+#* @get /plot
+function(){
+  rand <- rnorm(100)
+  hist(rand)
+}
 
-  # create geojson string from dataframe
-  geojsonString <- geojson_json(df)
-
-  # data to return
-  geojsonString
+#* Return the sum of two numbers
+#* @param a The first number to add
+#* @param b The second number to add
+#* @post /sum
+function(a, b){
+  as.numeric(a) + as.numeric(b)
 }
 
 print('app.R running')
