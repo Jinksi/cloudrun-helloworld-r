@@ -11,7 +11,10 @@ COPY . .
 # Install any R packages
 RUN Rscript -e "install.packages('plumber')"
 
-EXPOSE 8080
+# Set port on build time
+ARG PORT=8080
+ENV PORT=${PORT}
+EXPOSE ${PORT}
 
 # Run the web service on container startup.
 CMD [ "Rscript", "server.R"]
