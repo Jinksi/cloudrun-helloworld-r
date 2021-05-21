@@ -1,5 +1,7 @@
 # Cloud Run with R – Hello World
 
+⭐️ [Read the blog post: Serverless R functions with Google Cloud Run](https://ericjinks.com/blog/2019/serverless-R-cloud-run/) ⭐️ 
+
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
 
 An example of creating serverless functions using `R`, `plumber`, `Docker` and [Cloud Run](https://cloud.google.com/run/).
